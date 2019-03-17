@@ -103,8 +103,10 @@ export default class App extends Component<Props> {
                 // write base64 data to file
                 RNFetchBlob.fs.writeFile(path, RNFetchBlob.base64.encode(base64Str), 'base64')
                     .then(() => {
-                        console.log('arquivo salvo - ' + path)
+                        console.log('arquivo salvo - ' + path);
+                        RNFetchBlob.fs.scanFile([ { path : path, mime : 'image/png' } ]);
                     });
+
 
                 let listaimgAUX = this.state.lista_imagensGaleria;
                 listaimgAUX.unshift({source: {uri: `data:image/png;base64,${(base64Str)}`}});
@@ -342,6 +344,7 @@ export default class App extends Component<Props> {
             RNFetchBlob.fs.writeFile(path, RNFetchBlob.base64.encode(resp_body), 'base64')
                 .then(() => {
                     console.log('arquivo salvo - ' + path)
+                    RNFetchBlob.fs.scanFile([ { path : path, mime : 'image/png' } ]);
                 });
         }else{
             alert("FALHA");
@@ -383,7 +386,9 @@ export default class App extends Component<Props> {
                 RNFetchBlob.fs.writeFile(path, RNFetchBlob.base64.encode(resp_body), 'base64')
                     .then(() => {
                         console.log('arquivo salvo - ' + path)
+                        RNFetchBlob.fs.scanFile([ { path : path, mime : 'image/png' } ]);
                     });
+
             })
             .catch((error) => {
                 console.log(":::::: ERRO CATCH negocio_FetchDesafio_122 :::::");
