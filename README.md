@@ -51,6 +51,8 @@ $ react-native log-android
 
 - a simulação (mock) dos end-points se encontram no método '**teste_Desafio()**'  
 
+- zip do desafio: arquivo '**chall_mobile_mar.zip**'
+
 
 
 
